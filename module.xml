@@ -1,0 +1,43 @@
+<module>
+	<rawname>voiceai</rawname>
+	<repo>unsupported</repo>
+	<name>Voice AI Agent</name>
+	<version>2.0.0</version>
+	<publisher>Custom</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Applications</category>
+	<description>Automatically connect calls to Voice AI agent platforms (VAPI, Retell AI, ElevenLabs, Ultravox). Enter your API key, select an agent, and the module auto-creates the SIP bridge configuration.</description>
+	<changelog>
+		*2.0.0* Full API integration with VAPI, Retell AI, ElevenLabs, Ultravox
+		*1.0.0* Initial release
+	</changelog>
+	<database>
+		<table name="voiceai_providers">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="provider" type="string" length="50" notnull="true"/>
+			<field name="api_key" type="string" length="500" notnull="true"/>
+			<field name="extra_config" type="text" notnull="false"/>
+			<field name="enabled" type="boolean" default="1"/>
+		</table>
+		<table name="voiceai_agents">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="name" type="string" length="100" notnull="true"/>
+			<field name="provider" type="string" length="50" notnull="true"/>
+			<field name="remote_agent_id" type="string" length="255" notnull="true"/>
+			<field name="sip_uri" type="string" length="500" notnull="false"/>
+			<field name="sip_user" type="string" length="255" notnull="false"/>
+			<field name="transport" type="string" length="20" default="udp"/>
+			<field name="timeout" type="integer" default="300"/>
+			<field name="enabled" type="boolean" default="1"/>
+			<field name="config_json" type="text" notnull="false"/>
+		</table>
+	</database>
+	<depends>
+		<version>17.0.1</version>
+		<module>core</module>
+	</depends>
+	<menuitems>
+		<voiceai>Voice AI Agent</voiceai>
+	</menuitems>
+</module>
