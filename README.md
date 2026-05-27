@@ -322,6 +322,10 @@ fwconsole reload
 
 This removes the module, database tables, and dialplan entries. The PJSIP include line in `pjsip_custom.conf` and the AGI scripts in `/var/lib/asterisk/agi-bin/` may need manual cleanup.
 
+## Author
+
+**Ketan Jadhav** — Sr. VOIP Developer and Consultant
+
 ## License
 
 GPLv3+ — See [LICENSE](http://www.gnu.org/licenses/gpl-3.0.txt)
